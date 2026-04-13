@@ -90,7 +90,7 @@ function getRecommendation(monthlyCostUSD: number, t: (k: string) => string): Pr
 
 const USD_RATES: Record<string, number> = {
   vi: 25000, th: 35, tl: 56, id: 15500, ms: 4.7,
-  es: 1, ar: 3.75, ru: 90, en: 1, zh: 7.2,
+  es: 1, ar: 3.75, ru: 90, en: 1, pt: 5.5,
 }
 
 export default function Calculator() {
