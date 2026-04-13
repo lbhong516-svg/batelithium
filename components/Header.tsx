@@ -3,11 +3,14 @@
 import Link from 'next/link'
 import { useState } from 'react'
 import Sidebar from './Sidebar'
+import LanguageSelector from './LanguageSelector'
+import { useI18n } from '@/lib/i18n/context'
 
 export default function Header() {
   const [sidebarOpen, setSidebarOpen] = useState(false)
   const [searchOpen, setSearchOpen] = useState(false)
   const [searchQuery, setSearchQuery] = useState('')
+  const { t } = useI18n()
 
   return (
     <>
@@ -16,7 +19,7 @@ export default function Header() {
           <button
             onClick={() => setSidebarOpen(true)}
             className="w-9 h-9 flex items-center justify-center rounded-lg hover:bg-white/10 active:bg-white/20 transition"
-            aria-label="Mở menu"
+            aria-label={t('openMenu')}
           >
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
               <line x1="3" y1="6" x2="21" y2="6" />
@@ -29,16 +32,19 @@ export default function Header() {
             <span className="text-lg font-bold tracking-tight">Batelithium</span>
           </Link>
 
-          <button
-            onClick={() => setSearchOpen(!searchOpen)}
-            className="w-9 h-9 flex items-center justify-center rounded-lg hover:bg-white/10 active:bg-white/20 transition"
-            aria-label="Tìm kiếm"
-          >
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
-              <circle cx="11" cy="11" r="8" />
-              <line x1="21" y1="21" x2="16.65" y2="16.65" />
-            </svg>
-          </button>
+          <div className="flex items-center gap-1">
+            <LanguageSelector />
+            <button
+              onClick={() => setSearchOpen(!searchOpen)}
+              className="w-9 h-9 flex items-center justify-center rounded-lg hover:bg-white/10 active:bg-white/20 transition"
+              aria-label={t('search')}
+            >
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+                <circle cx="11" cy="11" r="8" />
+                <line x1="21" y1="21" x2="16.65" y2="16.65" />
+              </svg>
+            </button>
+          </div>
         </div>
 
         {searchOpen && (
@@ -46,7 +52,7 @@ export default function Header() {
             <div className="relative">
               <input
                 type="text"
-                placeholder="Tìm kiếm sản phẩm..."
+                placeholder={t('search')}
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className="w-full h-9 pl-9 pr-4 rounded-full bg-white/15 text-white placeholder-white/60 text-sm focus:outline-none focus:bg-white/25 transition"
@@ -64,25 +70,25 @@ export default function Header() {
       {/* Marquee banner */}
       <div className="fixed top-12 left-0 right-0 z-40 bg-green-50 border-b border-green-100 overflow-hidden h-6 flex items-center">
         <div className="animate-marquee whitespace-nowrap flex gap-8 text-xs text-green-700 font-medium">
-          <span>🔋 Pin LiFePO4 chính hãng</span>
+          <span>🔋 {t('marquee1')}</span>
           <span>•</span>
-          <span>🚚 Miễn phí vận chuyển toàn quốc</span>
+          <span>🚚 {t('marquee2')}</span>
           <span>•</span>
-          <span>🛡️ Bảo hành 5 năm</span>
+          <span>🛡️ {t('marquee3')}</span>
           <span>•</span>
-          <span>⚡ 5000 chu kỳ sạc</span>
+          <span>⚡ {t('marquee4')}</span>
           <span>•</span>
-          <span>🏆 Chất lượng hàng đầu Việt Nam</span>
+          <span>🏆 {t('marquee5')}</span>
           <span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
-          <span>🔋 Pin LiFePO4 chính hãng</span>
+          <span>🔋 {t('marquee1')}</span>
           <span>•</span>
-          <span>🚚 Miễn phí vận chuyển toàn quốc</span>
+          <span>🚚 {t('marquee2')}</span>
           <span>•</span>
-          <span>🛡️ Bảo hành 5 năm</span>
+          <span>🛡️ {t('marquee3')}</span>
           <span>•</span>
-          <span>⚡ 5000 chu kỳ sạc</span>
+          <span>⚡ {t('marquee4')}</span>
           <span>•</span>
-          <span>🏆 Chất lượng hàng đầu Việt Nam</span>
+          <span>🏆 {t('marquee5')}</span>
         </div>
       </div>
 

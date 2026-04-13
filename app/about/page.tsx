@@ -1,12 +1,11 @@
-import Link from 'next/link'
-import type { Metadata } from 'next'
+'use client'
 
-export const metadata: Metadata = {
-  title: 'Giới Thiệu - Batelithium',
-  description: 'Batelithium - Nhà cung cấp pin LiFePO4 và hệ thống lưu trữ năng lượng hàng đầu Việt Nam.',
-}
+import Link from 'next/link'
+import { useI18n } from '@/lib/i18n/context'
 
 export default function AboutPage() {
+  const { t } = useI18n()
+
   return (
     <div className="animate-fade-in">
       {/* Back */}
@@ -15,89 +14,64 @@ export default function AboutPage() {
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
             <polyline points="15 18 9 12 15 6" />
           </svg>
-          Trang chủ
+          {t('backHome')}
         </Link>
       </div>
 
       <div className="px-3 space-y-5">
-        <h1 className="text-xl font-extrabold text-gray-800">💡 Giới Thiệu Batelithium</h1>
+        <h1 className="text-xl font-extrabold text-gray-800">{'\uD83D\uDCA1'} {t('aboutTitle')}</h1>
 
         {/* Mission */}
         <section className="bg-white rounded-2xl p-4 shadow-sm border border-gray-100">
-          <h2 className="text-base font-bold text-green-700 mb-2">🎯 Sứ Mệnh</h2>
+          <h2 className="text-base font-bold text-green-700 mb-2">{'\uD83C\uDFAF'} {t('mission')}</h2>
           <p className="text-sm text-gray-600 leading-relaxed">
-            Batelithium cam kết mang đến giải pháp lưu trữ năng lượng sạch, an toàn và bền vững cho mọi gia đình
-            và doanh nghiệp Việt Nam. Chúng tôi tin rằng năng lượng xanh là tương lai và pin LiFePO4 là chìa khóa
-            để mở ra kỷ nguyên năng lượng mới.
+            {t('missionDesc')}
           </p>
         </section>
 
         {/* Why LiFePO4 */}
         <section className="bg-white rounded-2xl p-4 shadow-sm border border-gray-100">
-          <h2 className="text-base font-bold text-green-700 mb-3">🔋 Tại Sao Chọn Pin LiFePO4?</h2>
+          <h2 className="text-base font-bold text-green-700 mb-3">{'\uD83D\uDD0B'} {t('whyChoose')}</h2>
           <div className="space-y-3">
-            <InfoItem
-              icon="🛡️"
-              title="An Toàn Tuyệt Đối"
-              desc="Pin LiFePO4 là loại pin an toàn nhất hiện nay, không cháy nổ, không phát thải khí độc hại. Hoàn toàn phù hợp cho môi trường gia đình."
-            />
-            <InfoItem
-              icon="⏳"
-              title="Tuổi Thọ Vượt Trội"
-              desc="5000+ chu kỳ sạc/xả, tương đương 10-15 năm sử dụng. Gấp 5 lần pin chì-axit truyền thống."
-            />
-            <InfoItem
-              icon="💰"
-              title="Tiết Kiệm Chi Phí"
-              desc="Tích điện giờ thấp điểm, sử dụng giờ cao điểm. Tiết kiệm đến 35% chi phí điện hàng tháng."
-            />
-            <InfoItem
-              icon="🌿"
-              title="Thân Thiện Môi Trường"
-              desc="Không chứa kim loại nặng độc hại, có thể tái chế 100%. Góp phần bảo vệ môi trường cho thế hệ tương lai."
-            />
-            <InfoItem
-              icon="⚡"
-              title="Hiệu Suất Cao"
-              desc="Hiệu suất chuyển đổi năng lượng đạt 96%, vượt xa các loại pin truyền thống. Hoạt động ổn định trong dải nhiệt độ rộng."
-            />
+            <InfoItem icon={'\uD83D\uDEE1\uFE0F'} title={t('safe')} desc={t('safeDesc')} />
+            <InfoItem icon={'\u23F3'} title={t('longLife')} desc={t('longLifeDesc')} />
+            <InfoItem icon={'\uD83D\uDCB0'} title={t('saveCost')} desc={t('saveCostDesc')} />
+            <InfoItem icon={'\uD83C\uDF3F'} title={t('eco')} desc={t('ecoDesc')} />
           </div>
         </section>
 
         {/* Products overview */}
         <section className="bg-white rounded-2xl p-4 shadow-sm border border-gray-100">
-          <h2 className="text-base font-bold text-green-700 mb-3">📦 Sản Phẩm Của Chúng Tôi</h2>
+          <h2 className="text-base font-bold text-green-700 mb-3">{'\uD83D\uDCE6'} {t('ourProducts')}</h2>
           <div className="space-y-2">
-            <ProductLine icon="🔋" title="Pin LiFePO4 12V" desc="Dung lượng từ 100Ah, phù hợp cho xe du lịch, thuyền, hệ thống solar nhỏ" />
-            <ProductLine icon="🏠" title="Lưu Trữ Gia Đình" desc="Hệ thống 1.28kW - 16kW, phù hợp cho hộ gia đình, biệt thự" />
-            <ProductLine icon="🏭" title="Lưu Trữ Công Nghiệp" desc="Hệ thống 125kW - 261kW, phù hợp cho nhà máy, khu công nghiệp" />
-            <ProductLine icon="⚡" title="Inverter" desc="Bộ chuyển đổi điện chất lượng cao, tương thích với mọi hệ thống" />
-            <ProductLine icon="☀️" title="Năng Lượng Mặt Trời" desc="Giải pháp solar kết hợp lưu trữ, tối ưu hóa sử dụng năng lượng" />
+            <ProductLine icon={'\uD83D\uDD0B'} title={t('pin12v')} desc="LiFePO4 12V 100Ah+" />
+            <ProductLine icon={'\uD83C\uDFE0'} title={t('homeStorage')} desc="1.28kW - 16kW" />
+            <ProductLine icon={'\uD83C\uDFED'} title={t('industrial')} desc="125kW - 261kW" />
+            <ProductLine icon={'\u26A1'} title={t('inverter')} desc="High-quality inverters" />
+            <ProductLine icon={'\u2600\uFE0F'} title={t('solar')} desc="Solar + Storage" />
           </div>
         </section>
 
         {/* Warranty */}
         <section className="bg-gradient-to-br from-green-700 to-green-600 rounded-2xl p-4 text-white shadow-lg">
-          <h2 className="text-base font-bold mb-3">🏆 Cam Kết Của Chúng Tôi</h2>
+          <h2 className="text-base font-bold mb-3">{'\uD83C\uDFC6'} {t('commitment')}</h2>
           <div className="space-y-2">
-            <Commitment text="Bảo hành 5 năm cho tất cả sản phẩm" />
-            <Commitment text="Miễn phí vận chuyển toàn quốc" />
-            <Commitment text="Hỗ trợ kỹ thuật 24/7" />
-            <Commitment text="Đổi trả trong 30 ngày nếu không hài lòng" />
-            <Commitment text="Tư vấn miễn phí, thiết kế hệ thống theo nhu cầu" />
+            <Commitment text={t('warranty5y')} />
+            <Commitment text={t('freeShip')} />
+            <Commitment text={t('cycles5000')} />
           </div>
         </section>
 
         {/* CTA */}
         <div className="bg-green-50 border border-green-200 rounded-2xl p-4 text-center">
-          <p className="text-sm font-bold text-green-800 mb-1">Quan tâm đến sản phẩm?</p>
-          <p className="text-xs text-green-600 mb-3">Liên hệ ngay để được tư vấn miễn phí</p>
+          <p className="text-sm font-bold text-green-800 mb-1">{t('interested')}</p>
+          <p className="text-xs text-green-600 mb-3">{t('contactForConsult')}</p>
           <div className="flex gap-2">
             <a href="tel:+8613612911335" className="flex-1 bg-green-600 text-white text-xs font-bold py-2.5 rounded-xl active:scale-95 transition-transform">
-              📞 +8613612911335
+              {'\uD83D\uDCDE'} +8613612911335
             </a>
             <Link href="/contact" className="flex-1 bg-white text-green-700 border border-green-300 text-xs font-bold py-2.5 rounded-xl active:scale-95 transition-transform">
-              ✉️ Gửi tin nhắn
+              {'\u2709\uFE0F'} {t('sendMsg')}
             </Link>
           </div>
         </div>

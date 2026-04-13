@@ -2,16 +2,18 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-
-const tabs = [
-  { href: '/', label: 'Trang chủ', icon: HomeIcon },
-  { href: '/collections/all', label: 'Sản phẩm', icon: GridIcon },
-  { href: '/calculator', label: 'Tính điện', icon: ZapIcon },
-  { href: '/contact', label: 'Liên hệ', icon: MessageIcon },
-]
+import { useI18n } from '@/lib/i18n/context'
 
 export default function BottomNav() {
   const pathname = usePathname()
+  const { t } = useI18n()
+
+  const tabs = [
+    { href: '/', labelKey: 'home', icon: HomeIcon },
+    { href: '/collections/all', labelKey: 'products', icon: GridIcon },
+    { href: '/calculator', labelKey: 'calculator', icon: ZapIcon },
+    { href: '/contact', labelKey: 'contact', icon: MessageIcon },
+  ]
 
   return (
     <nav className="fixed bottom-0 left-0 right-0 z-50 bg-white border-t border-gray-200 safe-bottom">
@@ -30,7 +32,7 @@ export default function BottomNav() {
               }`}
             >
               <Icon active={isActive} />
-              <span className="text-[10px] font-medium">{tab.label}</span>
+              <span className="text-[10px] font-medium">{t(tab.labelKey)}</span>
             </Link>
           )
         })}
