@@ -52,7 +52,7 @@ export default function Sidebar({ open, onClose }: SidebarProps) {
               key={c.handle}
               href={`/collections/${c.handle}`}
               icon={c.icon}
-              label={c.title}
+              label={t(c.titleKey)}
               active={pathname === `/collections/${c.handle}`}
               onClick={onClose}
             />

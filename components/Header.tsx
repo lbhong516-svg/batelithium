@@ -69,26 +69,26 @@ export default function Header() {
 
       {/* Marquee banner */}
       <div className="fixed top-12 left-0 right-0 z-40 bg-green-50 border-b border-green-100 overflow-hidden h-6 flex items-center">
-        <div className="animate-marquee whitespace-nowrap flex gap-8 text-xs text-green-700 font-medium">
-          <span>🔋 {t('marquee1')}</span>
-          <span>•</span>
-          <span>🚚 {t('marquee2')}</span>
-          <span>•</span>
-          <span>🛡️ {t('marquee3')}</span>
-          <span>•</span>
-          <span>⚡ {t('marquee4')}</span>
-          <span>•</span>
-          <span>🏆 {t('marquee5')}</span>
-          <span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
-          <span>🔋 {t('marquee1')}</span>
-          <span>•</span>
-          <span>🚚 {t('marquee2')}</span>
-          <span>•</span>
-          <span>🛡️ {t('marquee3')}</span>
-          <span>•</span>
-          <span>⚡ {t('marquee4')}</span>
-          <span>•</span>
-          <span>🏆 {t('marquee5')}</span>
+        <div className="animate-marquee whitespace-nowrap inline-flex gap-6 text-xs text-green-700 font-medium" style={{ width: 'max-content' }}>
+          <span>{'\uD83D\uDD0B'} {t('marquee1')}</span>
+          <span>{'\u2022'}</span>
+          <span>{'\uD83D\uDE9A'} {t('marquee2')}</span>
+          <span>{'\u2022'}</span>
+          <span>{'\uD83D\uDEE1\uFE0F'} {t('marquee3')}</span>
+          <span>{'\u2022'}</span>
+          <span>{'\u26A1'} {t('marquee4')}</span>
+          <span>{'\u2022'}</span>
+          <span>{'\uD83C\uDFC6'} {t('marquee5')}</span>
+          <span>{'\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0'}</span>
+          <span>{'\uD83D\uDD0B'} {t('marquee1')}</span>
+          <span>{'\u2022'}</span>
+          <span>{'\uD83D\uDE9A'} {t('marquee2')}</span>
+          <span>{'\u2022'}</span>
+          <span>{'\uD83D\uDEE1\uFE0F'} {t('marquee3')}</span>
+          <span>{'\u2022'}</span>
+          <span>{'\u26A1'} {t('marquee4')}</span>
+          <span>{'\u2022'}</span>
+          <span>{'\uD83C\uDFC6'} {t('marquee5')}</span>
         </div>
       </div>
 

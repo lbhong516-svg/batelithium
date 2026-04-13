@@ -1,29 +1,20 @@
 export interface CollectionInfo {
   handle: string
-  title: string
+  titleKey: string
   icon: string
-  description: string
+  descKey: string
 }
 
 export const COLLECTIONS: CollectionInfo[] = [
-  { handle: 'pin-12v', title: 'Pin 12V', icon: '🔋', description: 'Pin LiFePO4 12V chất lượng cao' },
-  { handle: 'luu-tru-gia-dinh', title: 'Lưu Trữ Gia Đình', icon: '🏠', description: 'Hệ thống lưu trữ năng lượng cho gia đình' },
-  { handle: 'cong-nghiep', title: 'Lưu Trữ Công Nghiệp', icon: '🏭', description: 'Giải pháp lưu trữ năng lượng công nghiệp' },
-  { handle: 'inverter', title: 'Inverter', icon: '⚡', description: 'Bộ chuyển đổi điện inverter' },
-  { handle: 'solar', title: 'Hệ Thống Năng Lượng Mặt Trời', icon: '☀️', description: 'Giải pháp năng lượng mặt trời' },
-]
-
-export const NAV_ITEMS = [
-  { href: '/', label: 'Trang Chủ', icon: '🏠' },
-  ...COLLECTIONS.map(c => ({ href: `/collections/${c.handle}`, label: c.title, icon: c.icon })),
-  { href: '/calculator', label: 'Tính Điện', icon: '🧮' },
-  { href: '/about', label: 'Giới Thiệu', icon: '💡' },
-  { href: '/contact', label: 'Liên Hệ', icon: '📞' },
+  { handle: 'frontpage', titleKey: 'colFeatured', icon: '\u2B50', descKey: 'colFeaturedDesc' },
+  { handle: 'h\u1EC7-th\u1ED1ng-l\u01B0u-tr\u1EEF-nang-l\u01B0\u1EE3ng', titleKey: 'colEnergy', icon: '\uD83D\uDD0B', descKey: 'colEnergyDesc' },
+  { handle: 'l\u01B0u-tr\u1EEF-nang-l\u01B0\u1EE3ng-cong-nghi\u1EC7p', titleKey: 'colHomeStorage', icon: '\uD83C\uDFE0', descKey: 'colHomeStorageDesc' },
+  { handle: 'l\u01B0u-tr\u1EEF-nang-l\u01B0\u1EE3ng-cong-nghi\u1EC7p-1', titleKey: 'colIndustrial', icon: '\uD83C\uDFED', descKey: 'colIndustrialDesc' },
 ]
 
 export const BOTTOM_TABS = [
-  { href: '/', label: 'Trang chủ', icon: 'home' },
-  { href: '/collections/all', label: 'Sản phẩm', icon: 'grid' },
-  { href: '/calculator', label: 'Tính điện', icon: 'zap' },
-  { href: '/contact', label: 'Liên hệ', icon: 'message' },
+  { href: '/', labelKey: 'home', icon: 'home' },
+  { href: '/collections/all', labelKey: 'products', icon: 'grid' },
+  { href: '/calculator', labelKey: 'calculator', icon: 'zap' },
+  { href: '/contact', labelKey: 'contact', icon: 'message' },
 ]
